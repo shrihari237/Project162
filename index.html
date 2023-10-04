@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="bowling.js"></script>
+  </head>
+
+  <body>
+    <a-scene id="scene" physics>
+      <a-entity
+        id="camera"
+        camera
+        position="0 2 0"
+        look-controls="pointerLockEnabled: false"
+      >
+        <a-cursor></a-cursor>
+      </a-entity>
+
+      <a-assets>
+        <a-asset-item id="pins" src="assets/models/bowling_pin/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-sky color="white"></a-sky>
+
+
+      <a-entity ball></a-entity>
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 0"
+        rotation="-90 0 0"
+        height="200"
+        width="200"
+        color="pink"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+
+      <!--Bowling Pins-->
+      <a-entity id="all-pins" position=" 0 0 5" >
+     <a-gltf-model id="pin" src="#pins" scale="2 2 2" position="-0.5 1.5 -10" dynamic-body></a-gltf-model>
+     <a-gltf-model id="pin" src="#pins" scale="2 2 2" position="0 1.5 -10" dynamic-body></a-gltf-model>
+     <a-gltf-model id="pin" src="#pins" scale="2 2 2" position="0.5 1.5 -10" dynamic-body></a-gltf-model>
+     <a-gltf-model id="pin" src="#pins" scale="2 2 2" position="-0.25 1.5 -10.55" dynamic-body></a-gltf-model>
+     <a-gltf-model id="pin" src="#pins" scale="2 2 2" position="0.25 1.52.5 -10.55" dynamic-body></a-gltf-model>
+     <a-gltf-model id="pin" src="#pins" scale="2 2 2" position="0 1.5 -11" dynamic-body></a-gltf-model>
+    </a-entity>
+
+
+    <!--Side Bars-->
+    <a-cylinder material="" geometry="height: 30" position="-7 1.5 0" rotation="0 90 90" color="red"></a-cylinder>
+    <a-cylinder material="" geometry="height: 30" position="7 1.5 0" rotation="0 90 90" color="red"></a-cylinder>
+           
+
+    <!--Bowling Alley-->
+    <a-box material="" geometry="" scale="12.65 5.18 3.27" position="-0.16206 2.2426 -16.66224" color="gray"></a-box>
+    <a-box material="" geometry="" position="-6.91776 2.65053 -16.662" scale="1 4.69 3.31" rotation="0 0 0.91" color="black"></a-box>
+    <a-box material="" geometry="" position="6.62224 2.65053 -16.662" scale="1 4.69 3.31" rotation="0 0 0.91" color="black"></a-box>
+    <a-box material="" geometry="" position="-0.13 5.43 -16.662" scale="14.75 1 3.31" color="black"></a-box>
+
+  </a-scene>
+  </body>
+</html>
